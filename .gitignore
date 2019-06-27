@@ -1,0 +1,35 @@
+.idea
+*.iml
+*.ipr
+*.iws
+*.log
+out
+
+#Built application files
+*.apk
+*.ap_
+
+# Files for the Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Eclipse Project files
+.classpath
+.project
+.settings/
+
+bin/
+gen/
+target/
+
+.DS_Store
+Thumbs.db
+
+*.bak
+*.tem
+*.temp
+#.swp
+*.*~
+~*.*
