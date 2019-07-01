@@ -1,4 +1,4 @@
-package com.xyh.thread;
+package com.xyh.thread.lock;
 
 import java.util.List;
 import java.util.UUID;

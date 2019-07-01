@@ -1,4 +1,4 @@
-package com.xyh.thread;
+package com.xyh.thread.lock;
 
 /**
  * @description:死锁案例，排除死锁，“jps -l”  查询java程序进程号，“jstack 进程号” 定位错误信息

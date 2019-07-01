@@ -1,4 +1,4 @@
-package com.xyh.thread;
+package com.xyh.thread.lock;
 
 /**
  * @description:指令重排序案例

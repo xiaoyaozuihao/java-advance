@@ -1,4 +1,4 @@
-package com.xyh.thread;
+package com.xyh.thread.lock;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;

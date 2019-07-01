@@ -1,4 +1,4 @@
-package com.xyh.thread;
+package com.xyh.thread.blockQueue;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.SynchronousQueue;

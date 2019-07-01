@@ -1,4 +1,4 @@
-package com.xyh.thread;
+package com.xyh.thread.communication;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;

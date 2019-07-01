@@ -1,4 +1,4 @@
-package com.xyh.thread;
+package com.xyh.thread.lock;
 
 /**
  * @description:双重检测锁的线程安全问题

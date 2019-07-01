@@ -1,4 +1,4 @@
-package com.xyh.thread;
+package com.xyh.thread.executor;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
