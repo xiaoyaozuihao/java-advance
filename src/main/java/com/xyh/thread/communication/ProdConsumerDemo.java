@@ -1,4 +1,4 @@
-package com.xyh.thread.lock;
+package com.xyh.thread.communication;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
