@@ -21,23 +21,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <argLine>-server -Xms256m -Xmx256m -XX:PermSize=128m -XX:MaxPermSize=128m -Dfile.encoding=UTF-8
-            -Djava.net.preferIPv4Stack=true
+        <argLine>-server -Xms256m -Xmx256m
         </argLine>
         <skip_maven_deploy>false</skip_maven_deploy>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.4.6</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql-connector-java</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.6</version>
-        </dependency>
         <dependency>
             <groupId>net.oschina.zcx7878</groupId>
             <artifactId>fastdfs-client-java</artifactId>

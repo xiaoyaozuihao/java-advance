@@ -61,7 +61,7 @@ public class FdfsService implements IFdfsService {
         String substring = fid.substring(fid.indexOf("/")+1);
         //unix时间戳 以秒为单位
         int ts = (int) (System.currentTimeMillis() / 1000);
-        String token=new String();
+        String token= "";
         try {
             token= ProtoCommon.getToken(substring, ts, secret_key);
         } catch (Exception e) {
