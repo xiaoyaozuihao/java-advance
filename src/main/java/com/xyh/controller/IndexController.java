@@ -31,6 +31,12 @@ public class IndexController {
     @Autowired
     private FastFileStorageClient fastFileStorageClient;
 
+    @RequestMapping("hello")
+    public String hello(String url) throws UnsupportedEncodingException {
+        String encode = URLEncoder.encode("http://www.baidu.com?adfs=12&dfsj", "utf-8");
+        return url;
+    }
+
     @RequestMapping(value = "/token",method = RequestMethod.GET)
     public String getToken(String group,String filepath) throws UnsupportedEncodingException, NoSuchAlgorithmException, MyException {
         int ts = (int) (System.currentTimeMillis() / 1000);
