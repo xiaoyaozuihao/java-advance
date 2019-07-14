@@ -14,8 +14,8 @@ public class JvmErrorDemo {
     public static void main(String[] args) {
 //        stackoverflowTest();
 //        outOfMemoryTest();
-//        gcOverHeadTest();
-        directMemoryTest();
+        gcOverHeadTest();
+//        directMemoryTest();
     }
 
     private static void directMemoryTest() {
