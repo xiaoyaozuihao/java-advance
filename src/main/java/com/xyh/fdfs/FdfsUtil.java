@@ -1,4 +1,4 @@
-package com.xyh.utils;
+package com.xyh.fdfs;
 
 import org.apache.commons.io.IOUtils;
 import org.csource.common.NameValuePair;
@@ -17,6 +17,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
+ * 简单版fdfs,不带连接池
  * @author xuyh
  * @date 2019/7/8
  */
@@ -34,7 +35,7 @@ public class FdfsUtil {
 
     static {
         try {
-            ClientGlobal.initByProperties("properties/fdfs_client.properties");
+            ClientGlobal.init("fdfs_client.conf");
         } catch (Exception e) {
             logger.error("FastDFS Client Init Fail!",e);
         }

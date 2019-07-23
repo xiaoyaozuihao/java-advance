@@ -1,4 +1,4 @@
-package com.xyh.utils;
+package com.xyh.fdfs;
 
 /**
  * @author xuyh
