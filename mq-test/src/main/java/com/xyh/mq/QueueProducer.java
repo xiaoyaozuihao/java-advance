@@ -16,12 +16,14 @@ import javax.jms.TextMessage;
  */
 public class QueueProducer {
     private static final String MQ_URL="tcp://192.168.40.210:61616";
+//    private static final String MQ_URL=ActiveMQConnectionFactory.DEFAULT_BROKER_BIND_URL;
     private static final String QUEUE_NAME="queue-test1";
     public static void main(String[] args) throws Exception {
         ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(MQ_URL);
         Connection connection = factory.createConnection();
         connection.start();
-        Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+        //带事务提交
+        Session session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);
         Queue queue = session.createQueue(QUEUE_NAME);
         MessageProducer producer = session.createProducer(queue);
         for(int i=0;i<3;i++){
@@ -31,8 +33,10 @@ public class QueueProducer {
             producer.send(textMessage);
             MapMessage mapMessage = session.createMapMessage();
             mapMessage.setString("k1","v1");
+            mapMessage.setStringProperty("p1","vip");
             producer.send(mapMessage);
         }
+        session.commit();
         producer.close();
         session.close();
         connection.close();
