@@ -14,6 +14,6 @@ public class ProducerApplication {
         SpringProducer producer = (SpringProducer) context.getBean("springProducer");
         producer.sendQueueMessage("product queue message");
         producer.sendTopicMessage("product topic message1");
-        producer.sendTopicMessage("product topic message2");
+//        producer.sendTopicMessage("product topic message2");
     }
 }
