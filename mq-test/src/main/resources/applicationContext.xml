@@ -13,9 +13,7 @@
     <bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory" destroy-method="stop">
         <property name="connectionFactory">
             <bean class="org.apache.activemq.ActiveMQConnectionFactory">
-                <property name="brokerURL">
-                    <value>tcp://192.168.40.210:61616</value>
-                </property>
+                <property name="brokerURL" value="nio://192.168.40.210:61616"/>
             </bean>
         </property>
         <property name="maxConnections" value="100"></property>
