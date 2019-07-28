@@ -15,9 +15,11 @@ import javax.jms.TextMessage;
  * @date 2019/7/16
  */
 public class QueueProducer {
-    private static final String MQ_URL="tcp://192.168.40.210:61616";
-//    private static final String MQ_URL=ActiveMQConnectionFactory.DEFAULT_BROKER_BIND_URL;
-    private static final String QUEUE_NAME="queue-test1";
+//    private static final String MQ_URL="tcp://192.168.40.210:61616";
+//    private static final String QUEUE_NAME="queue-test1";
+    public static final String MQ_URL="failover:(tcp://192.168.40.210:61616,tcp://192.168.40.211:61616,tcp://192.168.40.212:61616)?randomize=false";
+    private static final String QUEUE_NAME="queue-cluster";
+
     public static void main(String[] args) throws Exception {
         ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(MQ_URL);
         Connection connection = factory.createConnection();

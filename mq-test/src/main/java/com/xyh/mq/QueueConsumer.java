@@ -18,11 +18,13 @@ import java.io.IOException;
  * @date 2019/7/16
  */
 public class QueueConsumer {
-        public static final String MQ_URL="tcp://192.168.40.210:61616";
-//    private static final String MQ_URL = ActiveMQConnectionFactory.DEFAULT_BROKER_BIND_URL;
-    public static final String QUEUE_NAME = "queue-test1";
+    public static final String MQ_URL="tcp://192.168.40.210:61616";
+    public static final String QUEUE_NAME = "queue-schedule";
     public static final String USERANME = ActiveMQConnection.DEFAULT_USER;
     public static final String PASSWORD = ActiveMQConnection.DEFAULT_PASSWORD;
+
+//    public static final String MQ_URL="failover:(tcp://192.168.40.210:61616,tcp://192.168.40.211:61616,tcp://192.168.40.212:61616)?randomize=false";
+//    private static final String QUEUE_NAME="queue-cluster";
 
     public static void main(String[] args) throws JMSException, IOException {
         ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(USERANME, PASSWORD, MQ_URL);
@@ -36,7 +38,7 @@ public class QueueConsumer {
         MessageConsumer consumer = session.createConsumer(queue);
         //使用循环
         while (true) {
-            Message message = consumer.receive(1000L);
+            Message message = consumer.receive(3000L);
             if (message instanceof TextMessage) {
                 TextMessage textMessage = (TextMessage) message;
                 if (textMessage != null) {
