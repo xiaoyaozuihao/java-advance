@@ -12,6 +12,8 @@
         <module>fastdfs-test</module>
         <module>springboot-test</module>
         <module>mq-test</module>
+        <module>nio-test</module>
+
     </modules>
 
     <name>java-advance</name>
