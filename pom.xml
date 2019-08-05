@@ -17,6 +17,7 @@
         <module>dubbo-interface</module>
         <module>boot-dubbo-provider</module>
         <module>nio-test</module>
+        <module>spring-test</module>
 
     </modules>
 
