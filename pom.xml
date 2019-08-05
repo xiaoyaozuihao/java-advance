@@ -12,6 +12,10 @@
         <module>fastdfs-test</module>
         <module>springboot-test</module>
         <module>mq-test</module>
+        <module>dubbo-provider</module>
+        <module>dubbo-consumer</module>
+        <module>dubbo-interface</module>
+        <module>boot-dubbo-provider</module>
         <module>nio-test</module>
 
     </modules>
