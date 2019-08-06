@@ -29,6 +29,7 @@ import java.util.Properties;
  * @description:
  * @date 2019/8/5
  */
+//@WebServlet()
 public class MyDispatcherServlet extends HttpServlet {
     public static final long serialVersionUID=1L;
 
@@ -78,7 +79,7 @@ public class MyDispatcherServlet extends HttpServlet {
                 MyRequestMapping requestMapping = method.getAnnotation(MyRequestMapping.class);
                 String url = ("/" + baseUrl + "/" + requestMapping.value()).replaceAll("/+", "/");
                 handlerMapping.put(url,method);
-                System.out.println("mapped  "+url+","+method);
+                System.out.println("mapped  ["+url+"]  "+method);
             }
         }
     }
@@ -144,7 +145,7 @@ public class MyDispatcherServlet extends HttpServlet {
     }
 
     private void doScanner(String scanPackage) {
-        URL url = this.getClass().getClassLoader().getResource("/" + scanPackage.replaceAll("\\.", "/"));
+        URL url = this.getClass().getClassLoader().getResource("" + scanPackage.replaceAll("\\.", "/"));
         File dir  = new File(url.getFile());
         for (File file : dir.listFiles()) {
             if(file.isDirectory()){

@@ -24,7 +24,7 @@ public class DemoController {
     public void hello(@MyRequestParam String name, HttpServletResponse response){
         String result=demoService.hello(name);
         try {
-            response.setCharacterEncoding("utf-8");
+            response.setContentType("application/json;charset=utf-8");
             response.getWriter().write(result);
         } catch (IOException e) {
             e.printStackTrace();
