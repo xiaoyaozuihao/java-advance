@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicStampedReference;
  * @author xuyh
  * @date 2019/6/29
  */
-public class VolatileTestDemo {
+public class VolatileAtomicDemo {
     volatile int num;
     public void addNum(){
         num=60;
@@ -50,27 +50,28 @@ public class VolatileTestDemo {
      * 不保证原子性
      */
     public static void notGuaranteeAtomic(){
-        VolatileTestDemo volatileTestDemo =new VolatileTestDemo();
+        VolatileAtomicDemo volatileAtomicDemo =new VolatileAtomicDemo();
         for(int i=0;i<20;i++){
             new Thread(()->{
                 for(int j=0;j<1000;j++){
-                    volatileTestDemo.addPlusPlus();
-                    volatileTestDemo.addMyAtomic();
+                    volatileAtomicDemo.addPlusPlus();
+                    volatileAtomicDemo.addMyAtomic();
                 }
             },String.valueOf(i)).start();
         }
         while(Thread.activeCount()>2){
             Thread.yield();
         }
-        System.out.println(Thread.currentThread().getName()+"\tint type: final num value:"+ volatileTestDemo.num);
-        System.out.println(Thread.currentThread().getName()+"\tatomicInteger type:final num value:"+ volatileTestDemo.atomicInteger);
+
+        System.out.println(Thread.currentThread().getName()+"\tint type: final num value:"+ volatileAtomicDemo.num);
+        System.out.println(Thread.currentThread().getName()+"\tatomicInteger type:final num value:"+ volatileAtomicDemo.atomicInteger);
     }
 
     /**
      * 通过volatile关键字保证可见性
      */
     private static void seeOKByVolatile() {
-        VolatileTestDemo volatileTestDemo =new VolatileTestDemo();
+        VolatileAtomicDemo volatileAtomicDemo =new VolatileAtomicDemo();
         new Thread(()->{
             System.out.println(Thread.currentThread().getName()+"\t come in");
             try {
@@ -78,10 +79,10 @@ public class VolatileTestDemo {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            volatileTestDemo.addNum();
-            System.out.println(Thread.currentThread().getName()+"\t update num value "+ volatileTestDemo.num);
+            volatileAtomicDemo.addNum();
+            System.out.println(Thread.currentThread().getName()+"\t update num value "+ volatileAtomicDemo.num);
         },"aaa").start();
-        while(volatileTestDemo.num==0){
+        while(volatileAtomicDemo.num==0){
 
         }
         System.out.println(Thread.currentThread().getName()+"\t mission is over");
