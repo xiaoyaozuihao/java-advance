@@ -4,6 +4,7 @@ import com.xyh.servlet.MyDispatcherServlet;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.Wrapper;
+import org.apache.catalina.connector.Connector;
 import org.apache.catalina.startup.Tomcat;
 
 import javax.servlet.ServletException;
@@ -14,7 +15,7 @@ import javax.servlet.ServletException;
  * @date 2019/8/5
  */
 public class AppConfig {
-    public static final String CONTEXT_PATH="/";
+    public static final String CONTEXT_PATH="";
     public static final String HOST_NAME="localhost";
     public static final int PORT=8080;
 
@@ -26,14 +27,19 @@ public class AppConfig {
         tomcat.setPort(PORT);
         tomcat.getHost().setAutoDeploy(false);
 
+        Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
+        connector.setPort(PORT);
+        tomcat.setConnector(connector);
+
         Context context = tomcat.addWebapp(CONTEXT_PATH, baseDir);
-        tomcat.enableNaming();
         context.setReloadable(false);
         context.addLifecycleListener(new Tomcat.FixContextListener());
+        tomcat.enableNaming();
 
         Wrapper wrapper = tomcat.addServlet("", "dispatcherServlet", new MyDispatcherServlet());
         wrapper.addInitParameter("contextConfigLocation","application.properties");
         wrapper.addMapping("/*");
+        //另一种注册servlet的方式
 //        Wrapper wrapper = context.createWrapper();
 //        wrapper.setName("dispatcherServlet");
 //        wrapper.setServletClasmappeds(MyDispatcherServlet.class.getName());
