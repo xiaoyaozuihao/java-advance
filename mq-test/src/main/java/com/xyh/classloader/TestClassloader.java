@@ -9,15 +9,17 @@ public class TestClassloader {
     public static void main(String[] args) throws ClassNotFoundException {
         //无法获取根加载器，结果为null
         Class<?> clazz = Class.forName("java.lang.String");
-        System.out.println(clazz.getClassLoader());//null
+        //输出null
+        System.out.println(clazz.getClassLoader());
         //加载自己编写的类使用应用类加载器
-        Class<?> clazz1 = Class.forName("com.xyh.classloader.C");
-        System.out.println(clazz1.getClassLoader());//sun.misc.Launcher$AppClassLoader@18b4aac2
+        Class<?> clazz1 = Class.forName("com.xyh.classloader.Test1");
+        //输出sun.misc.Launcher$AppClassLoader@18b4aac2
+        System.out.println(clazz1.getClassLoader());
         //使用系统类加载器不会进行类的初始化
         ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
-        systemClassLoader.loadClass("com.xyh.classloader.CL");
+        systemClassLoader.loadClass("com.xyh.classloader.Test1");
         System.out.println("----------");
-        Class.forName("com.xyh.classloader.CL");
+        Class.forName("com.xyh.classloader.Test2");
         //获取父类加载器
         System.out.println(systemClassLoader);
         while(systemClassLoader!=null){
@@ -26,10 +28,10 @@ public class TestClassloader {
         }
     }
 }
-class C {
+class Test1 {
 
 }
-class CL{
+class Test2 {
     static {
         System.out.println("init class CL");
     }
