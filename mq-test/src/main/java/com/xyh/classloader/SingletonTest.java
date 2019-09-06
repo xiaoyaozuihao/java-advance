@@ -10,6 +10,7 @@ public class SingletonTest {
     public static int counter1;
     public static int counter2=0;
     private SingletonTest(){
+        System.out.println("构造函数执行");
         counter1++;
         counter2++;
     }
@@ -19,8 +20,7 @@ public class SingletonTest {
     }
 
     public static void main(String[] args) {
-        SingletonTest instance = SingletonTest.getInstance();
-        System.out.println(instance.counter1);
-        System.out.println(instance.counter2);
+        System.out.println(SingletonTest.counter1);
+        System.out.println(SingletonTest.counter2);
     }
 }
