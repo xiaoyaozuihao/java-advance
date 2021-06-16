@@ -12,7 +12,7 @@
 
     <properties>
         <!--<embed.tomcat.version>8.5.40</embed.tomcat.version>-->
-        <embed.tomcat.version>9.0.21</embed.tomcat.version>
+        <embed.tomcat.version>9.0.41</embed.tomcat.version>
     </properties>
 
     <artifactId>spring-test</artifactId>
